@@ -26,7 +26,7 @@ function BotCollection(){
 
     }
     //Removing bot from the army
-    const deleteBot = (botId) => {
+    const removeFromArmy = (botId) => {
         setArmy(army.filter((bot) => bot.id !== botId));
       };
     return(
@@ -48,7 +48,7 @@ function BotCollection(){
                         >
                             {army.some((b) => b.id === bot.id) ? "Already in Army" : "Add to Army"}
                         </button>
-                        <button onClick={() => deleteBot(bot.id)} style={{ color: "red" }}>
+                        <button onClick={() => removeFromArmy(bot.id)} style={{ color: "red" }}>
               x
             </button>
             
