@@ -48,9 +48,13 @@ function BotCollection(){
                         >
                             {army.some((b) => b.id === bot.id) ? "Already in Army" : "Add to Army"}
                         </button>
-                        <button onClick={() => removeFromArmy(bot.id)} style={{ color: "red" }}>
+                        <button onClick={() => removeFromArmy(bot.id)}>
+              Release bot 
+            </button>
+            <button onClick={() => removeFromArmy(bot.id)} style={{ color: "red" }}>
               x
             </button>
+
             
           </li>
         ))}
