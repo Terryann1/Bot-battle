@@ -17,7 +17,21 @@ function BotCollection(){
 
         
     }, []);
-    // Delete request
+    
+
+    //Adding a bot to an army
+    const addToArmy=(bot)=>{
+        // Check if bot is already enlisted in the army
+    if (!army.some((b) => b.id === bot.id)) {
+        setArmy([...army, bot]);  // Add bot to the army if not already enlisted
+      }
+
+    }
+    //Removing bot from the army
+    const removeFromArmy = (botId) => {
+        setArmy(army.filter((bot) => bot.id !== botId));
+      };
+      // Delete request
     const deleteBot = (botId) => {
         fetch(`http://localhost:3000/bots/${botId}`, {
           method: "DELETE",
@@ -33,19 +47,6 @@ function BotCollection(){
           .catch((error) => {
             console.error("Error deleting bot:", error);
           });
-      };
-
-    //Adding a bot to an army
-    const addToArmy=(bot)=>{
-        // Check if bot is already enlisted in the army
-    if (!army.some((b) => b.id === bot.id)) {
-        setArmy([...army, bot]);  // Add bot to the army if not already enlisted
-      }
-
-    }
-    //Removing bot from the army
-    const removeFromArmy = (botId) => {
-        setArmy(army.filter((bot) => bot.id !== botId));
       };
     return(
         <div>
@@ -69,7 +70,7 @@ function BotCollection(){
                         <button onClick={() => removeFromArmy(bot.id)}>
               Release bot 
             </button>
-            <button onClick={() => removeFromArmy(bot.id)} style={{ color: "red" }}>
+            <button onClick={() => deleteBot(bot.id)} style={{ color: "red" }}>
               x
             </button>
 
