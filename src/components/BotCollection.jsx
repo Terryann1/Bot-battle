@@ -16,6 +16,13 @@ function BotCollection(){
         
     }, []);
     //Adding a bot to an army
+    const addToArmy=(bot)=>{
+        // Check if bot is already enlisted in the army
+    if (!army.some((b) => b.id === bot.id)) {
+        setArmy([...army, bot]);  // Add bot to the army if not already enlisted
+      }
+
+    }
     return(
         <div>
             <h1>BotCollection List</h1>
