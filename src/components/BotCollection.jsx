@@ -17,6 +17,24 @@ function BotCollection(){
 
         
     }, []);
+    // Delete request
+    const deleteBot = (botId) => {
+        fetch(`http://localhost:3000/bots/${botId}`, {
+          method: "DELETE",
+        })
+          .then((response) => {
+            if (response.ok) {
+              setBots(bots.filter((bot) => bot.id !== botId)); // Remove bot from bot list
+              setArmy(army.filter((bot) => bot.id !== botId)); // Remove bot from army
+            } else {
+              console.error("Error deleting bot");
+            }
+          })
+          .catch((error) => {
+            console.error("Error deleting bot:", error);
+          });
+      };
+
     //Adding a bot to an army
     const addToArmy=(bot)=>{
         // Check if bot is already enlisted in the army
@@ -59,7 +77,7 @@ function BotCollection(){
           </li>
         ))}
             </ul>
-            <YourBotArmy army={army} removeFromArmy={removeFromArmy}/> {/* Render the YourBotArmy component and pass the army state */}
+            <YourBotArmy army={army} /> {/* Render the YourBotArmy component and pass the army state */}
 
             
         </div>
