@@ -36,6 +36,10 @@ function BotCollection(){
             <p>Damage: {bot.damage}</p>
             <p>Armor: {bot.armor}</p>
             <p>Catchphrase: {bot.catchphrase}</p>
+            //Adding a button
+            <button onClick={() => handleAddToArmy(bot)} disabled={army.some((b) => b.id === bot.id)}>
+              {army.some((b) => b.id === bot.id) ? "Already in Army" : "Add to Army"}
+            </button>
           </li>
         ))}
             </ul>
