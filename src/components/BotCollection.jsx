@@ -38,10 +38,13 @@ function BotCollection(){
             <p>Damage: {bot.damage}</p>
             <p>Armor: {bot.armor}</p>
             <p>Catchphrase: {bot.catchphrase}</p>
+            <button
+                            onClick={() => addToArmy(bot)}  // Use addToArmy instead of handleAddToArmy
+                            disabled={army.some((b) => b.id === bot.id)}  // Disable button if bot is already in the army
+                        >
+                            {army.some((b) => b.id === bot.id) ? "Already in Army" : "Add to Army"}
+                        </button>
             
-            <button onClick={() => handleAddToArmy(bot)} disabled={army.some((b) => b.id === bot.id)}>
-              {army.some((b) => b.id === bot.id) ? "Already in Army" : "Add to Army"}
-            </button>
           </li>
         ))}
             </ul>
