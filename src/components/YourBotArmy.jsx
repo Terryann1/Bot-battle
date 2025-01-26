@@ -17,6 +17,7 @@ function YourBotArmy({ army }) {
             <p>Damage: {bot.damage}</p>
             <p>Armor: {bot.armor}</p>
             <p>Catchphrase: {bot.catchphrase}</p>
+            <button onClick={() => removeFromArmy(bot.id)}>Remove from Army</button>
           </li>
         ))}
             </ul>

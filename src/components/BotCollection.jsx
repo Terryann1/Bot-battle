@@ -59,7 +59,7 @@ function BotCollection(){
           </li>
         ))}
             </ul>
-            <YourBotArmy army={army} /> {/* Render the YourBotArmy component and pass the army state */}
+            <YourBotArmy army={army} removeFromArmy={removeFromArmy}/> {/* Render the YourBotArmy component and pass the army state */}
 
             
         </div>
