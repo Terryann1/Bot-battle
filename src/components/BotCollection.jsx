@@ -16,7 +16,7 @@ function BotCollection(){
     }, []);
     return(
         <div>
-            <h1>Bot List</h1>
+            <h1>BotCollection List</h1>
             <ul>
             {bots.map(bot => (
           <li key={bot.id}>
