@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import './App.css'
 import BotCollection from './components/BotCollection';
+import YourBotArmy from './components/YourBotArmy';
 
 function App() {
 
   return(
-    <BotCollection/>
+    <div>
+        <BotCollection/>
+        <YourBotArmy/>  
+    </div>
+    
 
   )
 }

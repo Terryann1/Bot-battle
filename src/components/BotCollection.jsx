@@ -1,6 +1,8 @@
 import { useEffect,useState} from "react";
+import YourBotArmy from "./YourBotArmy";
 function BotCollection(){
     const[bots, setBots]=useState([]);//Initializing a state
+    const [army, setArmy] = useState([]);  // Store the bots added to the army
     //Get request
     useEffect(()=>{
         fetch("http://localhost:3000/bots")
@@ -36,15 +38,15 @@ function BotCollection(){
             <p>Damage: {bot.damage}</p>
             <p>Armor: {bot.armor}</p>
             <p>Catchphrase: {bot.catchphrase}</p>
-            //Adding a button
+            
             <button onClick={() => handleAddToArmy(bot)} disabled={army.some((b) => b.id === bot.id)}>
               {army.some((b) => b.id === bot.id) ? "Already in Army" : "Add to Army"}
             </button>
           </li>
         ))}
             </ul>
+            <YourBotArmy army={army} /> {/* Render the YourBotArmy component and pass the army state */}
             
-
         </div>
     )
 
