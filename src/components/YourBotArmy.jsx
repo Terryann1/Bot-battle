@@ -5,7 +5,7 @@ function YourBotArmy({ army }) {
     const validArmy = Array.isArray(army) ? army : [];
     return(
         <div>
-            <h2>Bot Army</h2>
+        
             <ul>
                   {/* Render each bot in the army */}
                   {validArmy.map((bot) => (
